@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch02-1</title>
+</head>
+<body>
+    <h2 id="demo" >자바스크립트로 뭘할수 있나요?</h2>
+    <button type="button" onclick="document.getElementById('demo').innerHTML='Hello JavaScript!'">
+    Click Me!</button>
+    <button type="button" onclick="document.getElementById('demo').style.color='blue'">
+        색깔바꾸기</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='none'">
+    글자 숨기기</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='block'">
+    글자 나타내기</button>
+    <script>
+        var now = new Date();
+        //알람창 발생부분
+        /*alert(now);
+        alert("Hello Javascript");*/ 
+
+        function Car(model, color, speed){
+            this.model = model;
+            this.color = color;
+            this.speed = speed;
+        }//이것은 JS 한줄 주석 양식 입니다.
+        /*여러줄 주석은
+        이와 같이 적용 합니다.(css 와 동일)*/
+        
+    </script>
+</body>
+</html>
