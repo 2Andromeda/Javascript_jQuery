@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ch 5.js"></script>
+
+</head>
+<body>
+    <p id="jagi"></p>
+    <script>
+        var objectExam = {
+            name: '김자기',
+            age: 23,
+            sayHello: function(hello){
+                document.getElementById("jagi").innerHTML = this.name + '야 ' +hello;
+            } 
+        };
+        
+        objectExam.sayHello('안녀엉 안녀엉');
+
+
+    </script>
+    <button type="button" onclick="objectExam.name = toggle(objectExam.name)">변신</button> 이제 1회용 아니야
+    <button type="button" onclick="objectExam.sayHello('안녀엉 안녀엉')">눌러봐요1</button>
+    <button type="button" onclick="objectExam.sayHello('쯔쯧')">눌러봐요2</button>
+
+    <script>
+        star.color='blue';
+        document.write("별의 색상 :" + star.color + "<br>");
+        document.write("별의 색상 :" + star.max_diameter + "<br>");
+        document.write("별의 색상 :" + star.max_radius() + "<br>");
+        document.write("별의 색상 :" + star.min_diameter + "<br>");
+        document.write("별의 색상 :" + star.min_radius() + "<br>");
+    </script>
+
+</body>
+</html>

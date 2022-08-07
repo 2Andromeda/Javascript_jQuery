@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="ch 4.js"></script>
+    <style>
+        #jagiya{
+            background-image: url('images/waving-hand@2x.gif');
+            background-repeat: no-repeat;
+            background-position: 150px;
+            background-size: 35px; 
+        }
+    </style>
 </head>
 <body>
     <h2>ch04_1</h2>
     <script> document.write(ch04_1(4,3) + "<br>");</script>
+    <img src="images/waving-hand@2x.gif" style="width: 50px; height:50px;">
+    <h2> 자기야 안녕 안녕못해    </h2>
+    <h2 id="jagiya"> 안녕 해줘~</h2>
+    <h2> 오늘은 안해줄거얌 찌릿 
+        
+    </h2>
+    <h2> 이제 집중해야 치킨먹을수 있서 그니까 자기두 언넝 공부하쟈 안뇽 </h2>
+    <h2> 안녕이아니라 안뇽이거둥~~ 메롱</h2>
+    <img src="images/melong.gif" style="width: 100px;">
+    <h2>난 알트탭 싫어해 내 맘대로 잘 안가, 그래서 보통 이렇게 반창 띄우던지 아니면 더블 모니터 단축키를 만들어보면 어떨까</h2>
+    <img src="images/melong.gif" style="width: 100px;"> 
+    <h2> 바쁘니까 말걸지마 </h2>
 
     <h2>ch04_2</h2>
     <script> document.write(ch04_2(4,3) +"<br>");</script>
@@ -44,6 +64,35 @@
 
         var ch04_12 = ch04_1;
         document.write(ch04_12(5,4) + "<br>");
+
+        ch04_19('사과', 10);
+        ch04_19('사과');
+        ch04_19('사과', '수천', 500, '완판');
+
+        var score=[40, 10, 8, 90, 58, 19, 80];
+        document.write(score.sort(compare));
+
+        var numericStr_01 = "12";
+        var numericStr_02 = "12.34";
+        var numericStr_03 = "1234$567";
+        var numericStr_04 = "1.234e2";
+        var numericStr_05 = "0x1234";
+        document.write("결과값" + parseInt(numericStr_01) + "<br>");
+        document.write("결과값" + parseInt(numericStr_01, 8) + "<br>");
+        document.write("결과값" + parseInt(numericStr_02, 8) + "<br>");
+        document.write("결과값" + parseInt(numericStr_03) + "<br>");
+        document.write("결과값" + parseInt(numericStr_04) + "<br>");
+        document.write("결과값" + parseInt(numericStr_05) + "<br>");
+        document.write("<br>" + "결과값(float)" + parseFloat(numericStr_01) + "<br>");
+        document.write("결과값(float)" + parseFloat(numericStr_02) + "<br>");
+        document.write("결과값(float)" + parseFloat(numericStr_03) + "<br>");
+        document.write("결과값(float)" + parseFloat(numericStr_04) + "<br>");
+        document.write("결과값(float)" + parseFloat(numericStr_05) + "<br>");
     </script>
+
+    <p>전역변수로 카운팅 하기</p>
+    <button type="button" onclick="myfunc()"> 카운트!</button>
+    <p id="demo">0</p>
+    
 </body>
 </html>
