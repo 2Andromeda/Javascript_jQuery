@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ch 4.js"></script>
+</head>
+<body>
+    <h2>ch04_1</h2>
+    <script> document.write(ch04_1(4,3) + "<br>");</script>
+
+    <h2>ch04_2</h2>
+    <script> document.write(ch04_2(4,3) +"<br>");</script>
+
+    <h2>ch04_3</h2>
+    <script>
+        var x = ch04_1(4,3) * 2;
+        document.write(x);
+    </script>
+
+    <h2>ch04_5</h2>
+    <script>
+        document.write(typeof(ch04_5) + "<br>");
+        document.write(ch04_5(4,3) + "<br>");
+        document.write(ch04_1.toString());
+    </script>
+
+    <h2>ch04_6</h2>
+    <script>ch04_6();</script>
+    <h2>ch04_7</h2>
+    <script> 
+        var x2 = ch04_6();
+        x2;
+        var ch04_8=function(){
+            document.write("표현식(무명) 함수" + "<br>");
+        };
+        ch04_8();
+
+        (function(){
+            document.write("람다함수 표현 방법" + "<br>");
+        })();
+
+        var ch04_12 = ch04_1;
+        document.write(ch04_12(5,4) + "<br>");
+    </script>
+</body>
+</html>
