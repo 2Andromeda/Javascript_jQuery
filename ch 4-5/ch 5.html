@@ -33,8 +33,182 @@
         document.write("별의 색상 :" + star.max_diameter + "<br>");
         document.write("별의 색상 :" + star.max_radius() + "<br>");
         document.write("별의 색상 :" + star.min_diameter + "<br>");
-        document.write("별의 색상 :" + star.min_radius() + "<br>");
+        document.write("별의 색상 :" + star.min_radius() + "<br>" + "<br>");
+
+        myCar = new Car("BMW", 100, "black");
+        yourCar = new Car("Benz", 150, "Gray");
+        document.write("내 차의 모델 :" + myCar.model + " 속도 :" + myCar.speed + " 색상 :" +myCar.color + "<br>");
+        yourCar.accel();
+        document.write("내 차의 모델 :" + yourCar.model + " 속도 :" + yourCar.speed + " 색상 :" +yourCar.color + "<br>");
+
+        myCar.price = 50000; /*객체의 멤버(매개변수, 메서드) 추가*/
+        delete myCar.price;/*객체 멤버 제거*/
+
+        /*객체 for문*/
+        for(var i in myCar){
+            document.write(i + ": " + myCar[i] + "<br>");
+        }
     </script>
+
+    <h2>ch05_09.html</h2>
+    <p id="demo01"></p>
+    <p id="demo02"></p>
+    <p id="demo03"></p>
+    <script>
+        var fruits = ["바나나", "오렌지", "사과", "망고", "레몬"];
+        document.getElementById("demo01").innerHTML = fruits.toString();
+        document.getElementById("demo02").innerHTML = fruits;
+        document.getElementById("demo03").innerHTML = fruits.join(" and ");
+    </script>
+
+    <p><br>어레이 테스트</p>
+    <script>
+        var arry01=["first", 100, "third", true];
+        var popvar = arry01.pop();
+        document.write(popvar + ", " + arry01 + "<br>");
+        arry01.push(false, "another");
+        document.write(arry01.length + ", " + arry01 + "<br>");
+        var another_Item = arry01.pop();
+        document.write(another_Item + "<br>");
+        document.write(arry01.push(false) + ", "+ arry01.length + ", "+ arry01 + "<br>");
+        document.write(arry01.length + ", " + arry01 + "<br>");
+        document.write(arry01.push("another") + ", " + arry01.length);
+    </script>
+
+    <p>indexOf (ch05_13)</p>
+    <script>
+        var fruits=["오렌지", "레몬", "페어", "애플", "바나나", "레몬"];
+        document.write(fruits.indexOf("애플") + "<br>");
+        document.write(fruits.indexOf("자기") + "<br>");
+        document.write(fruits.indexOf("레몬", 2) + "<br>");
+        fruits.splice(2, 1, "Lemon", "Mango");
+        document.write(fruits);
+    </script>
+    <script>
+        var arry21 = [40, 100, 1, 5, 25, 10];
+    </script>
+
+    <p>랜덤으로 숫자 정렬을 바꾸는 함수</p>
+    <p id="ch05_21h"></p>
+    <button onclick="ch05_21(arry21)">섞어</button>
+
+    <h2>ch05_24, 객체 요소의 sort</h2>
+    <script>
+        var cars = [
+            {type:"Volvo", year:2016},
+            {type:"Saab", year:2001},
+            {type:"BMW", year:2010}
+        ]
+    </script>
+    <button onclick="ch05_24(cars)">객체의 정리</button>
+    <p id="ch05_24h"></p>
+    <script> displayCars(cars);</script>
+
+    <h2>String 객체</h2>
+    <script>
+        var str01 = "Mozilla";
+        var empty = '';
+        var empty_plus = " ";
+        document.write("Mozilla의 문자열 길이 : " + str01.length + "<br>");
+        document.write("빈 문자열의 길이 : " + empty.length + "<br>");
+        document.write("공백 문자의 길이 : " + empty_plus.length + "<br>");
+        document.write(str01.bold().big() + "<br>");
+        document.write(str01.bold().big().match("a") + "<br>");
+        document.write(str01.indexOf("l") + "<br>");
+        document.write(str01.search("l") + "<br>");
+
+        var str = "this program is written by java. java is the best program";
+    </script>
+    <h2>String.replace 테스트</h2>
+    <button onclick="ch05_34(str)">작동!</button>
+    <p id="ch05_34_1h"></p>
+    <p id="ch05_34_2h"></p>
+    <p id="ch05_35h"></p>
+
+    <h2>Date 객체</h2>
+    <script>
+        var toDay = new Date();
+        var milliDay = new Date(10000000);
+        var stringDay = new Date("June 6, 2018 09:00:00");
+        var numberDay = new Date(2018, 6, 6, 0, 0, 0);
+        document.write("Date()는 오늘 날짜 : " + toDay + "<br>");
+        document.write("밀리 초로 주어진 값의 날짜 : " + milliDay + "<br>");
+        document.write("문자열로 주어진 값의 날짜 : " + stringDay + "<br>");
+        document.write("연월일이 숫자로 주어진 날짜 : " + numberDay + "<br>");
+        document.write("보다 보기쉽게 toDateString() : " + toDay.toDateString() + "<br>");
+    </script>
+
+    <h2>정규 표현식(RegExp) 객체</h2>
+    <p>정규 표현식은 문자의 패턴을 검색하기 위한 일련의 문자이다.<br>
+        텍스트 검색 및 텍스트 바꾸기 작업에 검색 패턴을 사용할수 있다.
+    </p>
+    <script>
+        var str2 = "Hello JavaScript Program..!";
+        var regexp_search = str2.search(/javascript/i);
+        document.write(regexp_search + "<br>");
+        var string_search = str2.search("javascript");
+        document.write(string_search + "<br>");
+        var regexp_replace = str2.replace(/javascript/i, "HTML5");
+        document.write(regexp_replace + "<br>");
+        var string_replace = str2.replace("javascript");
+        document.write(string_replace + "<br>");
+
+        var str3 = "The best program is javaScript...!";
+        var ptn = /javaScript/;
+        document.write(ptn.test(str3) + "<br>");
+        document.write(ptn.exec(str3) + "<br>");
+        document.write(str3.match(ptn) + "<br>");
+    </script>
+
+    <h2>정규 표현식 활용</h2>
+    <form name="calculator">
+        주민등록번호 : <input type="text" name="number1" maxlength=14>
+    </form>
+    <button onclick="ju_search()">검색</button>
+    <p id="ch05_58h"></p>
+
+    <h2>프로토 타입</h2>
+    <script>
+        Car.battery1 = true;
+        var protoCar = new Car("현대", 200, "파랑");
+        Car.prototype.battery2 = true; 
+        document.write("프로토 타입 미사용 : " + protoCar.battery1 + "<br>");
+        document.write("프로토 타입 사용 : " + protoCar.battery2 + "<br>");
+
+        var myChildCar = new childCar("기아", 150, "핑크");
+        document.write(myChildCar.model + "<br>");
+    </script>
+
+    <h2>prototypical 방식 (object 객체)</h2>
+    <script>
+        var first_childCar = Object.create(Car);
+        first_childCar.battery = false;
+        var second_childCar = Object.create(Car);
+        second_childCar.model = "Benz";
+        document.write("<b>first.model : </b>" + first_childCar.model + "<br>");
+        document.write("<b>first.accel : </b>" + first_childCar.accel + "<br>");
+        document.write("<b>second.model : </b>" + second_childCar.model + "<br>");
+        document.write("<b>second.bbreak : </b>" + second_childCar.bbreak + "<br>");
+
+    </script>
+
+    <h1>Try and Catch 문</h1>
+    <p id="cat"></p>
+    <script>
+        try{
+            adddlert("환영합니다.");
+        }
+        catch(err){
+            document.getElementById("cat").innerHTML = err.message;
+        }
+    </script>
+
+    <h2>throw 시험하기</h2>
+    <p>5와 10 사이의 숫자를 입력하세요.</p>
+    <input id="ch05_71h" type="text">
+    <button type="button" onclick = "ch05_71()">시험 입력</button>
+    <p id="message"></p>
+
 
 </body>
 </html>
