@@ -68,3 +68,31 @@ function multiple(a, b){
     var result = a * b;
     document.getElementById("ch_40h").innerHTML = result;
 }
+
+function validateForm(){
+    var x = document.forms["myForm"]["fname2"].value;
+    if (x == ""){
+        alert("이름은 작성되어야 합니다.");
+        return false;
+    }
+}
+
+function checkEmpty(ids, min, max){
+    var cont = document.getElementById(ids);
+    if(cont.value.length <= min || cont.value.length >= max){
+        alert("기본 자릿수를 벗어났습니다.");
+    }
+}
+
+function checkDateForm(ids){
+    var x;
+    var exp = /^\d{4}\/\d{1,2}\/\d{1,2}/;
+    var val = document.getElementById(ids).value;
+    if(val.match(exp)){
+        alert("잘 입력했습니다.");
+    }
+    else{
+        alert("잘못 입력했습니다.")
+    }
+    document.getElementById("ch07_72h").innerHTML=x;
+}

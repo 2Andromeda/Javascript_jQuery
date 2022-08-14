@@ -73,6 +73,41 @@
             document.getElementById("id01").firstChild.nodeValue;
     </script>
 
+    <div id="div1">
+        <p id="p01">이것은 첫번째 패러그랲</p>
+        <p id="p02">이것은 두번째 패러그랲</p>
+    </div>
+    <script>
+        var para = document.createElement("p");
+        var node = document.createTextNode("이것은 새로운 패러그랲(js로 추가)");
+        para.appendChild(node);
+        var element = document.getElementById("div1");
+        element.appendChild(para);
+        var para2 = document.createElement("p");
+        var node2 = document.createTextNode("또 다른 패러그랲(js)");
+        para2.appendChild(node2);    
+        var child = document.getElementById("p01");
+        element.insertBefore(para2, child);
+
+    </script>
+    
+    <h2>유효성 검증</h2>
+    <form name="myForm">
+        이름 : <input type="text" name="fname2">
+        <input type="submit" onclick="validateForm()" value="제출">
+    </form>
+
+    <form method ="post">
+        <input type="text" id="fname69" required>
+        <input type="button" value="submit2" onclick="checkEmpty('fname69', 6, 12)">
+    </form>
+
+    <h2>여백만들기</h2>
+    <p> name : <input type="text" id="ch07_72i"></p>
+    <input type="button" onclick="checkDateForm('ch07_72i')" value="유효성 검사">
+    <p id="ch07_72h" ></p>
+
+    
 
 
 
