@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 시작</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">//jquery 구글 부르는 방법
+    //src = "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js" jquery 마이크로소프트 부르는 방법
+    /*위처럼 구글 및 마소의 jquery 를 사용하면 매번 해당 사이트를 방문하여 다운로드 하여 실행하므로 속도가 늦을 것으로 예상되나
+    이미 많은 이용자가 다른 사이트를 방문할때 이미 다운로드 했을것이라 캐시에 로드되어 있기 빼문에 로드 시간이 빨라진다. 
+    그리고 대부분의 CDN은 사용자가 파일을 요청하면 가장 가까운 서버에서 파일을 제공하므로 로드 시간에 영향을 받지 않는다.*/
+    //src = "jq/jquery-3.2.0.min.js" 웹 설치 및 저장되있는 폴더의 jquery 라이브러리 부르는 방법
+    </script>
+    <script>
+        $(document).ready(function(){ //문서 로드가 완료되기 전에 jQuery가 실행되지 안도록 하는것
+            $("#hide").click(function(){
+                $("p").hide();
+            });
+            $('.test').click(function(){
+                $("#testid *, h3").css("background-color", "yellow");
+            });
+            $('#bord').click(function(){
+                $("div a").css({"color" : "green", "border": "2px solid green"});
+                $("a+ p").css({"color": "blue"});
+            });
+            $('#firstb').click(function(){
+                $("#first p:first-child").css({"color": "red"});
+            });
+            $('#nth').click(function(){
+                $('#first p:nth-child(3)').css({"color":"coral"});
+            });
+            $('#nth-of').click(function(){
+                $('#first p:nth-of-type(3)').css({"color" : "cyan"});
+            });
+            $('#even').click(function(){
+                $('#first p:even').css({"color": "gray"});
+            });
+            /*
+            only-child : 유일 요소일 경우, only-of-type : 지정 요소중 유일일 경우
+            eq() : 특정 인덱스 번호, gt(): 지정숫자보다 큰 인덱스인 경우, li() : 지정 숫자보다 작은 인덱스일 경우, not() : 지정 요소(클래스, id도 가능)를 제외한 모두
+            */
+            $('#id').click(function(){
+                $("[id = nth-of]").css({"color" : "darkgray"});
+                $('p[id]').css({"background-color": "red"}); //p요소중 id라는 속성을 가진 태그
+                /*
+                [attribute != value] : 지정된 속성 및 값을 갖지 않는 요소
+                [attribute $= value] : value로 끝나는 속성값을 가진 요소 a[href $= '.org']
+                [attribute |= value] : value라는 속성을 가지거나 value-로 시작하는 요소
+                [attribute ^= value] : 속성의 값이 value로 시작하는 요소
+                */
+            });
+
+            //폼 서식 선택자
+            $("#form3").click(function(){
+                $("#form2 :input").css({"background-color": "lightgray"});
+                $('#form2 :selected').css({"color" : "red"});
+            });
+
+            //기타 서식 선택자
+            function aniDiv(){
+                $("#etc :eq(0)").animate({width: "50%"}, "slow");
+                $("#etc :eq(0)").animate({width: "100%"}, "slow", aniDiv);
+            }
+            aniDiv();
+            $("#etcb").click(function(){
+                $(":animated").css({"color": "red"});
+            });
+
+            $("#hidden").click(function(){
+                $("#etc :hidden").show(3500);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h2>jquery 첫 시작</h2>
+    <h3>이건 색깔 칠하기</h3>
+    <p>this is paragraph1</p>
+    <p>두번째 페러그랲</p> 
+    <button id="hide">누르면 내용이 사라집니다.</button>
+    <button class="test">노란색 칠하기</button>
+    <div id="testid">
+        <p>구문1</p>
+        <p>구문2</p>
+    </div>
+    <div>
+        <a href="#">a1 Tag</a>
+        <p> p(child)(자식요소)
+            <span>span 1</span>
+            <a href="#">a2 Tag</a>
+        </p>
+        <p> p (child)
+            <span>span 2</span>
+        </p>
+        <span>
+            <p> 자손요소</p>
+        </span>
+    </div>
+    <button id="bord">a 값 테두리</button>
+
+    <div id="first">
+        <h2>방해꾼</h2>
+        <p>첫번째 패러그랲</p>
+        <p>두번째 패러그랲</p>
+        <p id="testp">세번째 패러그랲</p>
+        <p>네번째 패러그랲</p>
+        <button id="firstb">색칠하기</button>
+        <button id="nth">nth 색칠하기</button>
+        <button id="nth-of">nth-of 색칠하기</button>
+        <button id="even">짝수 위치 변경</button>
+    </div>
+
+    <button id="id">id라는 속성을 가진 내용 바꾸기</button>
+
+    <h2>폼 서식 선택자</h2>
+    <div id="form2">
+        <form action="">
+            Name : <input type="text" name="user"><br>
+            Password : <input type="password" name="password"> <br>
+            Car : <select>
+                <option> 볼보</option>
+                <option selected> 사아브</option>
+                <option> 메르세데스</option>
+            </select>
+            <button type="button"> 쓸모 없는 버튼</button>
+            <input type="reset" value="리셋">
+            <input type="submit" value="제출">
+        </form>
+        <button id="form3">데모 버튼</button>
+    </div>
+
+    <h2>기타 선택자</h2>
+    <div id="etc">
+        <div style="background: blue"> Div1</div>
+        <div style="background:green">Div2</div>
+        <button id="etcb">기타 버튼</button>
+        <p style="display:none">숨어있는 페러그랲</p>
+        <button id="hidden"> 버튼이여 나타나라</button>
+    </div>
+
+</body>
+</html>
