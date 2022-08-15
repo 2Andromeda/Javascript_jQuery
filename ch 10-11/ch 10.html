@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#clickEvent p").click(function(){
+                $(this).hide();
+            });
+            $("#mouseEvent p").mouseenter(function(){
+                $(this).css({"background-color": "yellow"});
+            });
+            $("#mouseEvent p").mouseleave(function(){
+                $(this).css({"background-color" : "red"});
+            });
+            $("#mouseDownUp p").mousedown(function(){
+                $(this).css({"color": "red"});
+            });
+            $("#mouseDownUp p").mouseup(function(){
+                $(this).css({"color": "blue"});
+            });
+            $(document).mousemove(function(event){
+                $("#mousePoint span").text(event.pageX + ", " + event.pageY);
+            });
+            $("#bound").focusin(function(){
+                $("#bound").css({"border": "red 5px solid"});
+            });
+            $("#select").select(function(){
+                alert("선택되었습니다.");
+            });
+            $("#keyboard").keydown(function(){
+                $(this).css({"background-color" : "red"});
+            });
+            $("#keyboard").keyup(function(){
+                $(this).css({"background-color" : "yellow"});
+            });
+            x=0;
+            $(window).scroll(function(){
+                $("#scroll").text(x+=1);
+            });
+            $("#binding").on("mouseover mouseout", function(){
+                $(this).toggleClass("intro");
+            });
+            $("#map").on({
+                mouseenter: function(){
+                    $(this).css("color", "red");
+                },
+                mouseleave: function(){
+                    $(this).css("color", "blue");
+                },
+                click : function(){
+                    $(this).css("color", "green");
+                }
+            });
+            $("#off").click(function(){
+                $("#map").off("mouseenter mouseleave");
+            });
+            $("#one").one("click", function(){
+                $(this).animate({"fontSize" : "+=6px"});
+            });
+            $("#on").on("click", function(){
+                $(this).animate({fontSize: "+=6px"});
+            });
+            $("#triggeri").select(function(){
+                $(this).after("텍스트가 선택되었습니다.");
+            });
+            $("#trigger").click(function(){
+                $("#triggeri").trigger("select");
+            });
+            $("#triggerhi").select(function(){
+                $(this).after("텍스트가 선택되었습니다.");
+            });
+            $("#triggerh").click(function(){
+                $("#triggerhi").triggerHandler("select");
+            });
+            $("#event").on("click dblclick mouseover mouseout", function(event){
+                $("#evento").text("실행시킨 이벤트는 :" + event.type);
+            });
+            // mouseover - 마우스를 위에 올려두었을때, mouseout - 마우스가 벗어날때, mousemove- 마우스가 움직일때
+        });
+    </script>
+    <style>
+        .intro {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="clickEvent">
+        <p>If you click on me, I will disappear.</p>
+        <p>Click me away!</p>
+        <p>Click me too!</p>
+    </div>
+    <div id="mouseEvent">
+        <p>왔다갔다</p>
+    </div>
+    <div id="mouseDownUp">
+        <p> 클릭엔 노</p>
+    </div>
+    <p id="mousePoint">마우스 포인터 위치 : <span></span></p>
+
+    <p>이름: <input type="text" id="bound"></p>
+    <p>셀렉트 : <input type="text" id="select" value="시작"></p>
+
+    <p> 키보드 효과 : <input type="text" id="keyboard"></p>
+    <p>스크롤 값은 : <span id="scroll"></span></p><br>
+
+    <p id="binding">바인딩 이벤트 메서드(여러 이벤트를 묶어 처리하기)(1. on 메서드)</p>
+    <p id="map">map 매개변수를 활용한 여러 효과 만들기</p>
+    <button id="off"> 이걸 누르면 위의 "map 매개변수~"의 색깔 바뀜 효과가 사라질것이다.(클릭만 빼고)</button>
+
+    <p id="one">one 메소드와</p>
+    <p id="on">on메소드의 차이(여러번 클릭해보세요)</p>
+    
+    <input type="text" value="트리거" id="triggeri"><br>
+    <button id="trigger"> 트리거 테스트</button><br>
+    <input type="text" value="트리거핸들러" id="triggerhi"><br>
+    <button id="triggerh">트리거 핸들러 테스트</button><br>
+
+    <button id="event">이벤트 메서드 테스트</button>
+    <p id="evento"></p>
+
+</body>
+</html>
