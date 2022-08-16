@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="ch 14.js"></script>
+
+</head>
+<body>
+    <h2>자바 스크립트 객체를 JSON string 으로 바꾸고 서버로 보낸다.</h2>
+    <p id="receive"></p>
+    <p id="receive2"></p>
+    <p id="jsontype"></p>
+    <p id="jsontype2"></p>
+    <p id="arr"></p>
+    <script>
+        document.getElementById("receive").innerHTML = myObj2.name;
+        document.getElementById("receive2").innerHTML = myObj2.city;
+        document.getElementById("jsontype").innerHTML = myJSON2;
+        document.getElementById("jsontype2").innerHTML = myJSON3;
+        document.getElementById("arr").innerHTML = arr;
+    </script>
+</body>
+</html>

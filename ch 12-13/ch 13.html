@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>XMLHttpRequet 객체</h2>
+        <button onclick="loadDoc()">내용 입력</button>
+    </div>
+    <script>
+        //JavaScript의 AJAX
+        function loadDoc(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    /*
+                    readyState값 정리
+                    0: 요청 초기화되지 않음 : open() 호출 전의 상태
+                    1: 서버 연결이 설정 됨 : send() 이전 상태
+                    2: 서버에서 요청이 수신된 상태
+                    3: 서버에서 처리 중인 상태
+                    4: 서버에서 요청이 완료되고, 응답이 준비된 상태
+                    status 값 정리
+                    200: "OK" -성공
+                    403: "Forbidden" -접근 거부
+                    404: "Page not found" - 파일/페이지 없음
+                    */
+                    document.getElementById("demo").innerHTML =this.responseText;
+                }
+            };
+            //get 방식
+            xhttp.open("GET", "abcde.txt", true);
+            xhttp.send();
+
+            /*post 방식 -> 파일/DB 업데이트, 크기 제한 없음, 보안 중요한 경우 사용
+            xhttp.open("POST", "demo_post2.asp", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //setRequestHeader(http 헤더, http 헤더의 값)
+            xhttp.send("fname=Henry&lname=Ford"); //쿼리 문자열 송부
+            */
+        }
+
+        //jQuery의 AJAX
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.ajax({url:"demo_test.txt", success: function(result){
+                    $("#div1").html(result);
+                }});
+            });
+            $("button1").click(function(){
+                $("div1").load("demo_test.txt", function(responseText, statusTxt, xhr){
+                    if(statusTxt=="success"){
+                        alert("외부 내용이 성공적으로 로드됨");
+                    }
+                    else{
+                        alert("Error" + xhr.status + ":" + xhr.statusTxt);
+                    }
+                });
+            });
+
+            //get 메서드
+            $.get("test.php", function(data,status){
+                alert("Data:" + data + "\nStatus:" + status);
+            });
+        });
+    </script>
+</body>
+</html>
