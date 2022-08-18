@@ -7,9 +7,79 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="ch 12.js"></script>
-    
+    <style>
+        .test {
+            background-color: yellow;
+        }
+        .ancestors *{
+            display: block;
+            border: 2px solid orange;
+            color: blue;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
 </head>
 <body>
-    
+    <p id="test1"> This is some <b> bold</b> text in a paragraph</p>
+    <p>Name: <input type="text" id="test2" value="Mickey Mouse"></p>
+    <button id="btn1">text 보이기</button>
+    <button id="btn2">html 보이기</button> 
+    <button id="btn3">Value 보이기</button>
+    <button id="btn4">input 속성 바꾸기</button>
+    <p id="ch12_01h"></p>
+
+    <button id="btn5">height 단순 변환</button>
+    <button id="btn6">height function 변환</button>
+    <div id="ch12_06" style="height:50px; width: 50px;border:1px solid blue;background-color:lightblue;"></div>
+    <br><br>
+    <p id="offset">offset 작동하기</p>
+    <p id="newoff" style="top: 500px;">비교 오프셋</p>
+    <button id="offset1">offset 일반값</button>
+    <button id="offset2">offset function</button>
+    <button id="offset3">offset 배껴오기</button>
+
+    <h2>scrollTop 설정</h2>
+    <p>scroll 값 : <span id="scrollt"></span></p>
+    <div style="height: 500px;">
+        <p>Scroll down this div</p>
+        <p id="scroll">when you have scrolled 50 pixels from the top, add the class "test" (yellow background color) to the paragraph.
+            Scroll up again to remove the class.
+        </p>
+    </div>
+
+    <h2>wrapping test</h2>
+    <p class="wrap">래핑될 1번째 요소</p>
+    <p class="wrap">래핑될 2번째 요소</p>
+    <button class="wrapb">래핑해라</button>
+    <button class="wrapAllB">전체 래핑(wrapAll())</button>
+
+    <div class="ancestors">
+        <div style="width:500px;">div (증조할아버지)
+            <ul>ul(할아버지)
+                <li class="first">li (아버지)
+                    <span>span01</span>
+                </li>
+                <li class="second">li (아버지)
+                    <span>span02</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px;">div(증조할아버지)
+            <p>p (아버지)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+    <button id="parent">parent()함수 버튼</button>
+    <button id="parentIn">parent("li")함수 버튼</button>
+    <button id="parentInFirst">parent("li.first")함수 버튼</button>
+    <br><br>
+    <button id="parents">전체 조상요소parents()</button>
+    <button id="parentsIn">전체 조상요소 중 일부parents("ul")</button>
+    <button id="parentsDouble">전체 조상요소 중 일부 여러개parents("li div")</button>
+    <br><br>
+    <button id="parentsUntil">일부 요소 추적(parentsUntil())</button>
+    <button id="closest">가장 가까운 특정 요소(closest("ul"))</button>
 </body>
 </html>
