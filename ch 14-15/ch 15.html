@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <srcipt src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></srcipt>
+</head>
+<body>
+    <div data-role="page" id="pageone">
+        <div data-role="header">
+            <h1>환영합니다.</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>안녕 메인이야</p>
+            <a href="#pagetwo"> 2번째 페이지로 이동</a>
+        </div>
+        <div data-role="footer">
+            <h1>이건 푸터</h1>
+        </div>
+    </div>
+    <div data-role="page" id="pagetwo">
+        <div data-role="header">
+            <h1>2번째 환영합니다.</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>안녕 메인이야</p>
+            <a href="#pageone"> 1번째 페이지로 이동</a>
+        </div>
+        <div data-role="footer">
+            <h1>이건 푸터</h1>
+        </div>
+    </div>
+</body>
+</html>
